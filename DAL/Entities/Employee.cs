@@ -6,11 +6,9 @@ namespace DAL.Entities
 {
     public class Employee
     {
-        public Int32 Id { get; set; }
-        public String Department_id { get; set; }
+        public String Id { get; set; }
         public Department Department { get; set; }
         public String Name { get; set; }
-
         public DateTime Dob { get; set; }
     }
 }
