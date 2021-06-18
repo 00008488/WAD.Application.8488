@@ -8,6 +8,7 @@ namespace DAL.Entities
     {
         public String Id { get; set; }
         public Department Department { get; set; }
+        public String DepartmentId { get; set; }
         public String Name { get; set; }
         public DateTime Dob { get; set; }
     }
