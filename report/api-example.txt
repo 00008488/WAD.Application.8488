@@ -1,0 +1,54 @@
+Department API:
+
+GET
+http://localhost:33668/api/department/getall
+
+GET
+http://localhost:33668/api/department/get/32r4t5g
+
+POST
+http://localhost:33668/api/department/create
+{
+  "Name":"Sales"
+}
+
+POST
+http://localhost:33668/api/department/update
+{
+  "id": "RLY4U0TB",
+  "name": "Sales1"
+}
+
+GET
+http://localhost:33668/api/department/delete/RLY4U0TB
+
+========================================================
+Employee API:
+
+GET
+http://localhost:33668/api/employee/getall
+
+GET
+http://localhost:33668/api/employee/get/324tr34ef
+
+POST
+http://localhost:33668/api/employee/create
+{
+  "Name":"Stefan",
+  "Dob":"1985-01-01T00:00:00",
+  "Department":null,
+  "DepartmentId":"j5r6tgw"
+}
+
+POST
+http://localhost:33668/api/employee/update
+{
+  "Id":"19HVD3GA",
+  "Name":"Stefann",
+  "Dob":"1985-01-02T00:00:00",
+  "Department":null,
+  "DepartmentId":"sv56745"
+}
+
+GET
+http://localhost:33668/api/employee/delete/19HVD3GA
