@@ -1,0 +1,47 @@
+﻿<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .btn-style {
+        width:35%;
+    }
+</style>
+
+<div>
+    <h1>Departments</h1>
+
+    <div style="margin-bottom: 10px;">
+        <button class="btn btn-success" ng-click="add_form()">Add</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        <tbody>
+            <tr ng-repeat="department in departments">
+                <td>{{department.name}}</td>
+                <td>
+                    <button class="btn btn-primary btn-style" data-id="{{department.id}}" ng-click="edit_form($event)">Edit</button>
+                    <button class="btn btn-danger btn-style" data-id="{{department.id}}" ng-click="delete($event)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
