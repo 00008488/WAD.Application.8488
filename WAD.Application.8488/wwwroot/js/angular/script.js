@@ -11,6 +11,14 @@ angular
                 templateUrl: 'parts/department/modify.html',
                 controller: 'DepartmentsModifyController'
             })
+            .when('/employees', {
+                templateUrl: 'parts/employee/show.html',
+                controller: 'EmployeesController'
+            })
+            .when('/employees/modify', {
+                templateUrl: 'parts/employee/modify.html',
+                controller: 'EmployeesModifyController'
+            })
     })
     .controller(
         'DepartmentsController',
@@ -144,6 +152,49 @@ angular
                     }
                 });
 
+            }
+        ]
+    )
+    .controller(
+        'EmployeesController',
+        [
+            '$scope',
+            '$http',
+            function ($scope, $http) {
+
+                $scope.employees = [];
+                $http.get('/api/employee/getall').then(function (response) {
+                    $scope.employees = response.data;
+                })
+
+                $scope.add_form = function () {
+                    window.location = "#!/employees/modify?action=1";
+                }
+
+                $scope.edit_form = function ($event) {
+                    let id = $($event.target).data('id');
+                    window.location = "#!/employees/modify?action=2&id=" + id;
+                }
+
+                $scope.delete = function ($event) {
+                    let id = $($event.target).data('id');
+                    let url = '/api/employee/delete/' + id;
+
+                    $http({
+                        method: 'GET',
+                        url: url,
+                    })
+                        .then(function (success) {
+                            if (success.data) {
+                                alert("Successfully deleted");
+                                window.location = "#!/employees";
+                            } else {
+                                alert("Something happened")
+                            }
+                        }, function (error) {
+                            alert(error.status);
+                        });
+                }
             }
         ]
     );
