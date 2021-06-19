@@ -27,6 +27,7 @@ namespace DAL.Repos.Impl
 
         public bool Create(Employee d)
         {
+            d.Id = Util.RandomGenerator();
             try
             {
                 _ctx.Employees.Add(d);
@@ -49,6 +50,8 @@ namespace DAL.Repos.Impl
                 try
                 {
                     existing.Name = e.Name;
+                    existing.DepartmentId = e.DepartmentId;
+                    existing.Dob = e.Dob;
                     _ctx.SaveChanges();
 
                     return true;

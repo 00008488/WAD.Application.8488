@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL;
+using DAL.Repos;
+using DAL.Repos.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WAD.Application._8488.Services;
+using WAD.Application._8488.Services.Impl;
 
 namespace WAD.Application._8488
 {
@@ -28,6 +32,10 @@ namespace WAD.Application._8488
             services.AddDbContext<DbContextConfig>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("EmployeeManagementDb")
             ));
+            services.AddScoped<DepartmentRepository, DepartmentRepositoryImpl>();
+            services.AddScoped<EmployeeRepository, EmployeeRepositoryImpl>();
+            services.AddScoped<DepartmentService, DepartmentServiceImpl>();
+            services.AddScoped<EmployeeService, EmployeeServiceImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

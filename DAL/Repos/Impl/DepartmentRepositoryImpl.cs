@@ -27,6 +27,7 @@ namespace DAL.Repos.Impl
 
         public bool Create(Department d)
         {
+            d.Id = Util.RandomGenerator();
             try
             {
                 _ctx.Departments.Add(d);
