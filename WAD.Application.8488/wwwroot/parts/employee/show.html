@@ -38,7 +38,7 @@
             <tr ng-repeat="employee in employees">
                 <td>{{employee.name}}</td>
                 <td>{{employee.department.name}}</td>
-                <td>{{employee.dob}}</td>
+                <td>{{employee.dob | date:'MMMM dd, yyyy'}}</td>
                 <td>
                     <button class="btn btn-primary btn-style" data-id="{{employee.id}}" ng-click="edit_form($event)">Edit</button>
                     <button class="btn btn-danger btn-style" data-id="{{employee.id}}" ng-click="delete($event)">Delete</button>

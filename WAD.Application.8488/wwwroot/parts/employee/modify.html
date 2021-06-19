@@ -1,0 +1,54 @@
+﻿<div>
+    <h1>{{action}}</h1>
+
+    <form>
+        <div>
+            <input type="hidden" name="action_name_id" ng-model="action_name_id" value="{{action_name_id}}" />
+            <input type="hidden" name="Id" ng-value="{{id}}" ng-model="employee.Id" />
+
+            <table>
+                <tr>
+                    <td>
+                        <label for="Name">Name: </label>
+                    </td>
+                    <td>
+                        <input type="text" name="Name" ng-model="employee.Name" value="{{employeeName}}" placeholder="{{employeeName}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Name">Department: </label>
+                    </td>
+                    <td>
+
+                        <select id="Department" name="Department" ng-model="employee.DepartmentId">
+                            <option ng:repeat="department in departments" value="{{department.id}}"">
+                                {{department.name}}
+                            </option>
+                        </select>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Name">Date of Birth: </label>
+                    </td>
+                    <td>
+                        <input type="date" name="Dob" ng-model="employee.Dob" value="{{employeeDob}}" placeholder="{{employeeDob}}" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button style="float: right;" class="btn btn-success" ng-click="post_to(action_name_id, employee)">Save</button>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+        </div>
+    </form>
+
+</div>
